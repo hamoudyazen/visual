@@ -40,10 +40,15 @@
     "yazen_NVr6DK": {
       "type": "yazen",
       "settings": {}
+    },
+    "yazen_rxBD6m": {
+      "type": "yazen",
+      "settings": {}
     }
   },
   "order": [
     "featured_collection_E6egYx",
-    "yazen_NVr6DK"
+    "yazen_NVr6DK",
+    "yazen_rxBD6m"
   ]
 }
