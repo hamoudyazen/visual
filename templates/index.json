@@ -60,7 +60,7 @@
         "image_VEqfgH"
       ],
       "settings": {
-        "heroHeight": "var(--heroHeight-f)",
+        "heroHeight": "var(--heroHeight-l)",
         "cropVideo": false,
         "title": "Hero heading",
         "content": "",
@@ -72,7 +72,7 @@
         "contentPositionMob": "center between",
         "contentDirectionMob": "column",
         "textAlignmentMob": "center",
-        "heroMetaH1Bg": "#FFFFFF",
+        "heroMetaH1Bg": "#ffffff",
         "heroMetaH1Color": "#000000",
         "heroMetaH1hasBg": false
       }
