@@ -297,7 +297,11 @@
       }
     </script>
     {%- liquid
-  
+      echo 'skelet.css' | asset_url | stylesheet_tag
+      render 'global-css-vars'
+      if settings.useCustomFont
+          render 'global-fonts'
+      endif
       echo 'app.css' | asset_url | stylesheet_tag
   -%}
   </head>
