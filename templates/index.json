@@ -77,12 +77,63 @@
         "heroMetaH1Color": "#000000",
         "heroMetaH1hasBg": false
       }
+    },
+    "promo_grid_nULcnL": {
+      "type": "promo-grid",
+      "blocks": {
+        "advanced_g7Xt3V": {
+          "type": "advanced",
+          "settings": {
+            "subheading": "",
+            "heading": "Announce your promotion",
+            "textarea": "Include the smaller details of your promotion in text below the title.",
+            "cta_text1": "Shop This",
+            "cta_link1": "",
+            "cta_text2": "Shop All",
+            "cta_link2": "",
+            "video_url": "",
+            "width": "50",
+            "height": 500,
+            "text_align": "vertical-center horizontal-center",
+            "color_accent": "#fff"
+          }
+        },
+        "advanced_XJBVmN": {
+          "type": "advanced",
+          "settings": {
+            "subheading": "",
+            "heading": "Announce your promotion",
+            "textarea": "Include the smaller details of your promotion in text below the title.",
+            "cta_text1": "Shop This",
+            "cta_link1": "",
+            "cta_text2": "Shop All",
+            "cta_link2": "",
+            "video_url": "",
+            "width": "50",
+            "height": 500,
+            "text_align": "vertical-center horizontal-center",
+            "color_accent": "#fff"
+          }
+        }
+      },
+      "block_order": [
+        "advanced_g7Xt3V",
+        "advanced_XJBVmN"
+      ],
+      "settings": {
+        "full_width": false,
+        "gutter_size": 20,
+        "space_above": true,
+        "space_below": true,
+        "lazyload_images": true
+      }
     }
   },
   "order": [
     "featured_collection_E6egYx",
     "yazen_NVr6DK",
     "yazen_rxBD6m",
-    "hero_banner_custom_Ng7Pef"
+    "hero_banner_custom_Ng7Pef",
+    "promo_grid_nULcnL"
   ]
 }
