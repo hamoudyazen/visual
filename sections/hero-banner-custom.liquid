@@ -31,28 +31,17 @@
     {%- if block.settings.imgClickable and section.settings.url != empty %}
     <style>.hero { --heroMetaPointerEvents: none }</style>
     <a href="{{ section.settings.url }}" class="no-style" tabindex="-1">{% endif -%}
-        <picture>
-            {%- assign img_mobile = block.settings.imageMobile -%}
-            {%- assign img_desktop = block.settings.image -%}
-        
-            {%- if img_desktop or img_mobile -%}
-                {%- if img_mobile -%}
-                <source srcset="{{ img_mobile | image_url: width: 970 }} 1x, {{ img_mobile | image_url: width: 1280 }} 2x" media="(max-width:777px)">
-                {%- endif -%}
-                {%- if img_desktop -%}
-                <!-- Define expected dimensions for desktop images -->
-                <img 
-                    src="{{ img_desktop | image_url: width: 1280 }}" 
-                    alt="{{ section.settings.title | escape }}" 
-                    loading="lazy" 
-                    width="1280" 
-                    height="720"> <!-- Replace 720 with the appropriate height for your images -->
-                {%- endif -%}
-            {%- else -%}
-                {{ 'lifestyle-1' | placeholder_svg_tag: 'svg-placeholder' }}
-            {%- endif -%}
-        </picture>
-        
+    <picture>
+        {%- assign imgMobile = block.settings.imageMobile -%}
+        {%- assign imgDesktop = block.settings.image -%}
+
+        {%- if imgDesktop != nil or imgMobile != nil -%}
+        {%- if imgMobile != nil -%}<source srcset="{{ imgMobile | image_url: width: 970 }} 1x, {{ imgMobile | image_url: width: 1280 }} 2x" media="(max-width:777px)" >{%- endif -%}
+        {%- render 'global-img' img: imgDesktop, alt: section.settings.title -%}
+        {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'svg-placeholder' }}
+        {%- endif -%}
+    </picture>
     {%- if block.settings.imgClickable and section.settings.url != empty -%}</a>{%- endif -%}
     {%- endif -%}
 
