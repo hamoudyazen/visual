@@ -44,11 +44,44 @@
     "yazen_rxBD6m": {
       "type": "yazen",
       "settings": {}
+    },
+    "hero_banner_custom_Ng7Pef": {
+      "type": "hero-banner-custom",
+      "blocks": {
+        "image_VEqfgH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/M1000TE_5.jpg",
+            "imgClickable": false
+          }
+        }
+      },
+      "block_order": [
+        "image_VEqfgH"
+      ],
+      "settings": {
+        "heroHeight": "var(--heroHeight-f)",
+        "cropVideo": false,
+        "title": "Hero heading",
+        "content": "",
+        "cta": "Shop more",
+        "url": "",
+        "contentPosition": "center between",
+        "contentDirection": "row",
+        "textAlignment": "start",
+        "contentPositionMob": "center between",
+        "contentDirectionMob": "column",
+        "textAlignmentMob": "center",
+        "heroMetaH1Bg": "#FFFFFF",
+        "heroMetaH1Color": "#000000",
+        "heroMetaH1hasBg": false
+      }
     }
   },
   "order": [
     "featured_collection_E6egYx",
     "yazen_NVr6DK",
-    "yazen_rxBD6m"
+    "yazen_rxBD6m",
+    "hero_banner_custom_Ng7Pef"
   ]
 }
