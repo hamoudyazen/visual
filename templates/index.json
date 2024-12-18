@@ -51,7 +51,7 @@
         "image_VEqfgH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/M1000TE_5.jpg",
+            "image": "shopify://shop_images/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
             "imageMobile": "shopify://shop_images/M1000TE_2.jpg",
             "imgClickable": false
           }
@@ -61,15 +61,15 @@
         "image_VEqfgH"
       ],
       "settings": {
-        "heroHeight": "var(--heroHeight-l)",
+        "heroHeight": "var(--heroHeight-s)",
         "cropVideo": false,
         "title": "Hero headingljheskjfhsdkjhf",
         "content": "jhasdkjhsakjdh",
         "cta": "Shop more",
         "url": "",
-        "contentPosition": "bottom left",
+        "contentPosition": "center between",
         "contentDirection": "row",
-        "textAlignment": "start",
+        "textAlignment": "center",
         "contentPositionMob": "center between",
         "contentDirectionMob": "column",
         "textAlignmentMob": "center",
