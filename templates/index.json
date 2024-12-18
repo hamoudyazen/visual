@@ -52,6 +52,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/M1000TE_5.jpg",
+            "imageMobile": "shopify://shop_images/M1000TE_2.jpg",
             "imgClickable": false
           }
         }
@@ -62,11 +63,11 @@
       "settings": {
         "heroHeight": "var(--heroHeight-l)",
         "cropVideo": false,
-        "title": "Hero heading",
-        "content": "",
+        "title": "Hero headingljheskjfhsdkjhf",
+        "content": "jhasdkjhsakjdh",
         "cta": "Shop more",
         "url": "",
-        "contentPosition": "center between",
+        "contentPosition": "bottom left",
         "contentDirection": "row",
         "textAlignment": "start",
         "contentPositionMob": "center between",
