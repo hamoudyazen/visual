@@ -10,37 +10,7 @@
     <title>
       {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
     </title>
-    <link
-      rel="stylesheet"
-      href="{{ 'component-predictive-search.css' | asset_url }}"
-      media="print"
-      onload="this.media='all'"
-    >
-      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-      <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-      <script>
-        window.shopUrl = '{{ request.origin }}';
-        window.routes = {
-          cart_add_url: '{{ routes.cart_add_url }}',
-          cart_change_url: '{{ routes.cart_change_url }}',
-          cart_update_url: '{{ routes.cart_update_url }}',
-          cart_url: '{{ routes.cart_url }}',
-          predictive_search_url: '{{ routes.predictive_search_url }}',
-        };
-        </script>
-      {%- if settings.predictive_search_enabled -%}
-        <link
-          rel="stylesheet"
-          href="{{ 'component-predictive-search.css' | asset_url }}"
-          media="print"
-          onload="this.media='all'"
-        >
-      {%- endif -%}
-      {%- if settings.predictive_search_enabled -%}
-        <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-      {%- endif -%}
-
-<script src="{{ "https://cozyantitheft.addons.business/js/script_tags/itslitmerchstore/default/protect.js?shop=itslitmerchstore.myshopify.com" }}" defer></script>
+{{"https://cozyantitheft.addons.business/js/script_tags/itslitmerchstore/default/protect.js?shop=itslitmerchstore.myshopify.com" | script_tag }}
     {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
@@ -137,7 +107,7 @@
  
         {{ 'paymentfont.scss.css' | asset_url | stylesheet_tag }}
       
-<script src="https://demandforapps.com/add/js/add_animate.js" defer></script>{% include 'hulkcode_common' %}{% if template contains 'product' or template contains 'cart' %}<script src='https://volumediscount.hulkapps.com/hulkcode.js' defer='defer'></script>{% endif %}<script async src="https://assets.apphero.co/script_tags/277734_170422.js"></script></head> 
+<script src="https://demandforapps.com/add/js/add_animate.js"></script>{% include 'hulkcode_common' %}{% if template contains 'product' or template contains 'cart' %}<script src='https://volumediscount.hulkapps.com/hulkcode.js' defer='defer'></script>{% endif %}<script async src="https://assets.apphero.co/script_tags/277734_170422.js"></script></head> 
 
   <body class="prestige--v1 {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}">
     <a class="PageSkipLink u-visually-hidden" href="#main">{{ 'header.navigation.skip_to_content' | t }}</a>
@@ -208,10 +178,4 @@
 {% render 'special-offers' %}
 
 {% include 'appikon-discounts' %}</body>
-
-{%- if settings.predictive_search_enabled -%}
-  <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
-
-
 </html>
