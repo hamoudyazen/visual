@@ -192,4 +192,16 @@
     <svg class="{{ icon_class }}" role="presentation" viewBox="0 0 36 36">
       <path fill="currentColor" d="M28 36v-8h8v8h-8zm0-22h8v8h-8v-8zm0-14h8v8h-8V0zM14 28h8v8h-8v-8zm0-14h8v8h-8v-8zm0-14h8v8h-8V0zM0 28h8v8H0v-8zm0-14h8v8H0v-8zM0 0h8v8H0V0z"></path>
     </svg>
+
+{%- when 'search' -%}
+    <svg class="{{ icon_class }}" role="presentation" viewBox="0 0 24 24">
+      <path d="M10.5 3a7.5 7.5 0 1 1-7.5 7.5 7.509 7.509 0 0 1 7.5-7.5m0 2a5.5 5.5 0 1 0 5.5 5.5 5.507 5.507 0 0 0-5.5-5.5m12.708 16.292-5.9-5.9A9.985 9.985 0 0 0 20 10.5 10 10 0 1 0 10.5 20a9.985 9.985 0 0 0 5.9-1.692l5.9 5.9a1 1 0 0 0 1.414-1.414z"></path>
+    </svg>
+
+    
+{%- when 'account' -%}
+    <svg class="{{ icon_class }}" role="presentation" viewBox="0 0 24 24">
+      <path d="M12 2a6 6 0 1 1-6 6 6 6 0 0 1 6-6m0 10a4 4 0 1 0-4-4 4 4 0 0 0 4 4m6 8H6a6 6 0 0 1-6-6h2a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4h2a6 6 0 0 1-6 6z"></path>
+    </svg>
+    
 {%- endcase -%}
