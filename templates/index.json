@@ -17,46 +17,40 @@
       "type": "yazen",
       "settings": {}
     },
-    "slideshow_cU4LVy": {
-      "type": "slideshow",
+    "slideshow_pres_cMY6kF": {
+      "type": "slideshow-pres",
       "blocks": {
-        "slide_4ELeig": {
-          "type": "slide",
+        "image_mTC7xc": {
+          "type": "image",
           "settings": {
             "image": "shopify://shop_images/woman-infront-of-tree-with-berries.jpeg",
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
+            "apply_overlay": true,
+            "content_position": "bottomLeft",
+            "subheading": "Slide title",
+            "title": "Tell your story",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": ""
           }
         }
       },
       "block_order": [
-        "slide_4ELeig"
+        "image_mTC7xc"
       ],
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "counter",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
+        "show_fullscreen": true,
+        "show_arrow": false,
+        "autoplay": true,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636"
       }
     }
   },
   "order": [
     "yazen_NVr6DK",
     "yazen_rxBD6m",
-    "slideshow_cU4LVy"
+    "slideshow_pres_cMY6kF"
   ]
 }
