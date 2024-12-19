@@ -309,94 +309,116 @@ HEADER CONTENT
               </li>
             {%- endif -%}
 
- <!-- Search Icon -->
-<li class="HorizontalList__Item">
-  <a href="javascript:void(0);" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable" aria-label="Search" onclick="toggleSearchForm()">
-    <span>{%- include 'icon' with 'search' -%}</span>
-  </a>
-</li>
-
-<!-- The Search Form Pop-Up -->
-<div id="searchModal" class="search-modal">
-  <div class="search-modal-content">
-    <span class="search-modal-close" onclick="toggleSearchForm()">&times;</span>
-    <form action="/search" method="get" class="search-form">
-      <input type="text" name="q" placeholder="Search..." class="search-input">
-      <button type="submit" class="search-button">Search</button>
-    </form>
-  </div>
-</div>
-
-<!-- CSS for Modal (Simplified) -->
-<style>
-  /* Modal container (hidden by default) */
-  .search-modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000; /* Ensure it is above other content */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); /* Center the modal */
-    padding: 20px;
-  }
-
-  /* Modal content */
-  .search-modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-  }
-
-  /* Close button (×) */
-  .search-modal-close {
-    font-size: 30px;
-    color: black;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-
-  /* Input field and button */
-  .search-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  .search-button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .search-button:hover {
-    background-color: #0056b3;
-  }
-</style>
-
-<!-- JavaScript to Toggle Modal -->
-<script>
-  function toggleSearchForm() {
-    var modal = document.getElementById('searchModal');
-    alert("on");
-    // Toggle the display of the modal
-    if (modal.style.display === "block") {
-      modal.style.display = "none"; // Hide modal
-    } else {
-      modal.style.display = "block"; // Show modal
-    }
-  }
-</script>
-
+            <style>
+              /* Modal (hidden by default) */
+              .search-modal {
+                display: none; /* Hidden by default */
+                position: fixed;
+                z-index: 9999; /* Make sure it appears above everything else */
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+              }
+          
+              /* Modal content */
+              .search-modal-content {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                width: 80%;
+                max-width: 500px;
+              }
+          
+              /* Close button */
+              .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 30px;
+                font-weight: bold;
+                cursor: pointer;
+              }
+          
+              /* Style the form */
+              .search-form input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+              }
+          
+              .search-form button {
+                width: 100%;
+                padding: 10px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              }
+          
+              .search-form button:hover {
+                background-color: #0056b3;
+              }
+          
+              /* Adjustments for search icon */
+              .Header__Icon {
+                display: inline-block;
+                cursor: pointer;
+                color: #007bff;
+              }
+            </style>
+          </head>
+          <body>
+            <ul class="Header__Icon">
+              <li class="HorizontalList__Item">
+                <a href="#" id="search-icon" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable" aria-label="Search">
+                  <span>{%- include 'icon' with 'search' -%}</span>
+                </a>
+              </li>
+            </ul>
+          
+            <!-- Search Modal -->
+            <div id="search-modal" class="search-modal">
+              <div class="search-modal-content">
+                <span class="close-btn" id="close-search-modal">&times;</span>
+                <form action="/search" method="get" class="search-form">
+                  <input type="text" name="q" placeholder="Search..." aria-label="Search">
+                  <button type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          
+            <script>
+              // Get modal element
+              var modal = document.getElementById("search-modal");
+              var searchIcon = document.getElementById("search-icon");
+              var closeBtn = document.getElementById("close-search-modal");
+          
+              // Open the modal when the search icon is clicked
+              searchIcon.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                modal.style.display = "flex"; // Show the modal
+              });
+          
+              // Close the modal when the close button is clicked
+              closeBtn.addEventListener('click', function() {
+                modal.style.display = "none"; // Hide the modal
+              });
+          
+              // Close the modal if the user clicks outside of the modal content
+              window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                  modal.style.display = "none"; // Hide the modal if clicked outside
+                }
+              });
+            </script>
             <script>
               document.getElementById('predictive-search-input').addEventListener('input', function(event) {
                 var query = event.target.value;
