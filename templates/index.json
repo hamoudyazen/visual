@@ -38,9 +38,16 @@
         "text_color": "#ffffff",
         "button_color": "#363636"
       }
+    },
+    "predict_yeXT7w": {
+      "type": "predict",
+      "settings": {
+        "cta_1_title": "Dryups Specials"
+      }
     }
   },
   "order": [
-    "slideshow_pres_cMY6kF"
+    "slideshow_pres_cMY6kF",
+    "predict_yeXT7w"
   ]
 }
