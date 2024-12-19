@@ -13,7 +13,7 @@
       <summary
         class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
         aria-haspopup="dialog"
-        aria-label="{{ 'general.search.search' | t }}"
+        aria-label="{{ 'general.search.search'}}"
       >
         <span>
           <span class="svg-wrapper">
@@ -28,7 +28,7 @@
         class="search-modal modal__content gradient"
         role="dialog"
         aria-modal="true"
-        aria-label="{{ 'general.search.search' | t }}"
+        aria-label="{{ 'general.search.search'}}"
       >
         <div class="modal-overlay"></div>
         <div
@@ -36,7 +36,7 @@
           tabindex="-1"
         >
           {%- if settings.predictive_search_enabled -%}
-            <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+            <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' }}">
           {%- else -%}
             <search-form class="search-modal__form">
           {%- endif -%}
@@ -48,7 +48,7 @@
                 type="search"
                 name="q"
                 value="{{ search.terms | escape }}"
-                placeholder="{{ 'general.search.search' | t }}"
+                placeholder="{{ 'general.search.search'}}"
                 {%- if settings.predictive_search_enabled -%}
                   role="combobox"
                   aria-expanded="false"
@@ -62,18 +62,18 @@
                   spellcheck="false"
                 {%- endif -%}
               >
-              <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
+              <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' }}</label>
               <input type="hidden" name="options[prefix]" value="last">
               <button
                 type="reset"
                 class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
-                aria-label="{{ 'general.search.reset' | t }}"
+                aria-label="{{ 'general.search.reset' }}"
               >
                 <span class="svg-wrapper">
                   {{- 'icon-reset.svg' | inline_asset_content -}}
                 </span>
               </button>
-              <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+              <button class="search__button field__button" aria-label="{{ 'general.search.search'}}">
                 <span class="svg-wrapper">
                   {{- 'icon-search.svg' | inline_asset_content -}}
                 </span>
@@ -96,7 +96,7 @@
           <button
             type="button"
             class="search-modal__close-button modal__close-button link link--text focus-inset"
-            aria-label="{{ 'accessibility.close' | t }}"
+            aria-label="{{ 'accessibility.close' }}"
           >
             <span class="svg-wrapper">
               {{- 'icon-close.svg' | inline_asset_content -}}

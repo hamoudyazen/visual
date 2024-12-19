@@ -130,7 +130,7 @@ HEADER CONTENT
                       <div class="MegaMenu__Inner">
                         {%- for sub_link in link.links -%}
                           <div class="MegaMenu__Item MegaMenu__Item--fit">
-                            <a href="{{ sub_link.url }}" class="MegaMenu__Title Heading Text--subdued u-h7">{{ sub_link.title | title }}</a>
+                            <a href="{{ sub_link.url }}" class="MegaMenu__Title Heading Text--subdued u-h7">{{ sub_link.title }}</a>
 
                             {%- if sub_link.links != blank -%}
                               <ul class="Linklist">
@@ -156,6 +156,8 @@ HEADER CONTENT
 
                                 <div class="MegaMenu__PushImageWrapper AspectRatio" style="background: url({{ block.settings.push_1_image | img_url: '1x1', format: 'jpg' }}); max-width: {{ max_width }}px; --aspect-ratio: {{ block.settings.push_1_image.aspect_ratio }}">
                                   <img class="Image--lazyLoad Image--fadeIn"
+                                    height=""
+                                    width=""
                                        data-src="{{ block.settings.push_1_image | img_url: '370x230', scale: 2 }}"
                                        alt="{{ block.settings.push_1_image.alt | escape }}">
 
@@ -186,6 +188,8 @@ HEADER CONTENT
 
                                 <div class="MegaMenu__PushImageWrapper AspectRatio" style="background: url({{ block.settings.push_2_image | img_url: '1x1', format: 'jpg' }}); max-width: {{ max_width }}px; --aspect-ratio: {{ block.settings.push_2_image.aspect_ratio }}">
                                   <img class="Image--lazyLoad Image--fadeIn"
+                                    height=""
+                                    width=""
                                        data-src="{{ block.settings.push_2_image | img_url: '370x230', scale: 2 }}"
                                        alt="{{ block.settings.push_2_image.alt | escape }}">
 
@@ -263,10 +267,12 @@ HEADER CONTENT
                src="{{ section.settings.logo | img_url: image_size }}"
                srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
                width="{{ section.settings.logo_max_width }}"
+               height=""
                alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
 
           {%- if use_transparent_header and section.settings.transparent_logo != blank -%}
             <img class="Header__LogoImage Header__LogoImage--transparent"
+              height=""
                  src="{{ section.settings.transparent_logo | img_url: image_size }}"
                  srcset="{{ section.settings.transparent_logo | img_url: image_size }} 1x, {{ section.settings.transparent_logo | img_url: image_size, scale: 2 }} 2x"
                  width="{{ section.settings.logo_max_width }}"
@@ -314,7 +320,7 @@ HEADER CONTENT
                {% render 'header-search', input_id: 'Search-In-Modal' %}
 
 
-               
+
             <li class="HorizontalList__Item">
               <a href="/cart" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable" {% if settings.cart_type == 'drawer' %}data-action="open-drawer" data-drawer-id="sidebar-cart" aria-expanded="false" aria-label="Cart"{% endif %}>
                 <span>{%- include 'icon' with 'cart' -%}</span>
