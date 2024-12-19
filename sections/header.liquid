@@ -309,7 +309,7 @@ HEADER CONTENT
               </li>
             {%- endif -%}
 
- <!-- Search Icon (already in your code) -->
+ <!-- Search Icon -->
 <li class="HorizontalList__Item">
   <a href="javascript:void(0);" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable" aria-label="Search" onclick="toggleSearchForm()">
     <span>{%- include 'icon' with 'search' -%}</span>
@@ -327,13 +327,13 @@ HEADER CONTENT
   </div>
 </div>
 
-<!-- Add the necessary styles for the modal -->
+<!-- CSS for Modal -->
 <style>
-  /* Modal Style */
+  /* Hide Modal by Default */
   .search-modal {
     display: none; /* Hidden by default */
     position: fixed;
-    z-index: 1000;
+    z-index: 1000; /* Ensure it is above other content */
     left: 0;
     top: 0;
     width: 100%;
@@ -341,6 +341,7 @@ HEADER CONTENT
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     justify-content: center;
     align-items: center;
+    overflow: hidden; /* Prevent scrolling when modal is open */
   }
 
   .search-modal-content {
@@ -350,6 +351,7 @@ HEADER CONTENT
     width: 80%;
     max-width: 500px;
     text-align: center;
+    z-index: 1010; /* Higher z-index to ensure content is on top */
   }
 
   .search-modal-close {
@@ -383,14 +385,19 @@ HEADER CONTENT
   }
 </style>
 
-<!-- JavaScript to Toggle the Modal -->
+<!-- JavaScript to Toggle Modal -->
 <script>
   function toggleSearchForm() {
     var modal = document.getElementById('searchModal');
+    var body = document.body;
+
+    // Toggle the display of the modal
     if (modal.style.display === "flex") {
       modal.style.display = "none";
+      body.style.overflow = "auto"; // Re-enable scrolling
     } else {
       modal.style.display = "flex";
+      body.style.overflow = "hidden"; // Disable scrolling when modal is open
     }
   }
 </script>
