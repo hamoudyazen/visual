@@ -1,3 +1,9 @@
+{%- if settings.predictive_search_enabled -%}
+  <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="all">
+  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="all">
+{%- endif -%}
+
+
 {%- assign use_transparent_header = false -%}
 
 {%- if template == 'index' and section.settings.enable_transparent_header -%}
@@ -304,10 +310,43 @@ HEADER CONTENT
             {%- endif -%}
 
             <li class="HorizontalList__Item">
-              <a href="/search" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable" aria-label="Search">
+              <a href="#" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable" aria-label="Search" data-action="open-search">
                 <span>{%- include 'icon' with 'search' -%}</span>
               </a>
-                          </li>
+            </li>
+            
+            <div class="Search__Form" id="search-form" style="display:none;">
+              <input type="text" id="predictive-search-input" placeholder="Search..." />
+            </div>
+            <script>
+              document.getElementById('predictive-search-input').addEventListener('input', function(event) {
+                var query = event.target.value;
+            
+                if (query.length >= 3) {  // Trigger search only after 3 characters
+                  fetch(`/search/suggest.json?q=${query}`)
+                    .then(response => response.json())
+                    .then(data => {
+                      // You can process the response here and display suggestions dynamically.
+                      console.log(data); // Example response from Shopify's /search/suggest API
+                    });
+                }
+              });
+              
+              document.querySelector('[data-action="open-search"]').addEventListener('click', function() {
+                document.getElementById('search-form').style.display = 'block';
+              });
+            </script>
+            <script>
+              document.querySelector('[data-action="open-search"]').addEventListener('click', function() {
+                var searchForm = document.getElementById('search-form');
+                if (searchForm.style.display === 'block') {
+                  searchForm.style.display = 'none';
+                } else {
+                  searchForm.style.display = 'block';
+                }
+              });
+            </script>
+                                    
 
             <li class="HorizontalList__Item">
               <a href="/cart" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable" {% if settings.cart_type == 'drawer' %}data-action="open-drawer" data-drawer-id="sidebar-cart" aria-expanded="false" aria-label="Cart"{% endif %}>
