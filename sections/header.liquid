@@ -1,9 +1,3 @@
-{%- if settings.predictive_search_enabled -%}
-  <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="all">
-  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="all">
-{%- endif -%}
-
-
 {%- assign use_transparent_header = false -%}
 
 {%- if template == 'index' and section.settings.enable_transparent_header -%}
@@ -309,169 +303,17 @@ HEADER CONTENT
               </li>
             {%- endif -%}
 
-            <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-            <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
-            <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
-            <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
-            
-            {%- if settings.predictive_search_enabled -%}
-              <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
-            {%- endif -%}
-            
-            {%- if section.settings.menu_type_desktop == 'mega' -%}
-              <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-            {%- endif -%}
-            
-            <!-- Styles for header and search -->
-            <style>
-              header-drawer {
-                justify-self: start;
-                margin-left: -1.2rem;
-              }
-            
-              .menu-drawer-container {
-                display: flex;
-              }
-            
-              .list-menu {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-              }
-            
-              .list-menu__item {
-                display: flex;
-                align-items: center;
-                line-height: calc(1 + 0.3 / var(--font-body-scale));
-              }
-            
-              .header-search__input {
-                width: 100%;
-                padding: 0.8rem;
-                font-size: 1rem;
-              }
-            
-              .predictive-search-results {
-                background-color: #fff;
-                border: 1px solid #ccc;
-                max-height: 300px;
-                overflow-y: auto;
-              }
-            
-              .predictive-search-item {
-                padding: 1rem;
-                cursor: pointer;
-              }
-            
-              .predictive-search-item:hover {
-                background-color: #f0f0f0;
-              }
-            </style>
-            
-            <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
-            
-            <!-- Header Structure -->
-            <header class="header">
-              <div class="header__icons">
-                <!-- Search Form -->
-                <form action="{{ routes.search_url }}" method="get" class="header-search-form">
-                  <input 
-                    type="text" 
-                    name="q" 
-                    placeholder="Search products..." 
-                    class="header-search__input" 
-                    id="search-input" 
-                    autocomplete="off">
-                  <div id="search-results" class="predictive-search-results"></div>
-                </form>
-              </div>
-            </header>
-            
-            <!-- Predictive Search Script -->
-            <script>
-              document.getElementById('search-input').addEventListener('input', function() {
-                const query = this.value.trim();
-                const resultsContainer = document.getElementById('search-results');
-                resultsContainer.innerHTML = ''; // Clear previous results
-            
-                if (query.length > 2) {
-                  fetch(`/search/suggest.json?q=${encodeURIComponent(query)}`)
-                    .then(response => response.json())
-                    .then(data => {
-                      const products = data.products || [];
-                      if (products.length) {
-                        products.forEach(product => {
-                          const resultItem = document.createElement('div');
-                          resultItem.classList.add('predictive-search-item');
-                          resultItem.innerHTML = `<a href="${product.url}">${product.title}</a>`;
-                          resultsContainer.appendChild(resultItem);
-                        });
-                      } else {
-                        resultsContainer.innerHTML = '<div class="predictive-search-item">No results found</div>';
-                      }
-                    })
-                    .catch(error => console.error('Error fetching search suggestions:', error));
-                }
-              });
-            </script>
-            
-            <script type="application/ld+json">
-              {
-                "@context": "http://schema.org",
-                "@type": "WebSite",
-                "name": {{ shop.name | json }},
-                "potentialAction": {
-                  "@type": "SearchAction",
-                  "target": "/search?q={search_term_string}",
-                  "query-input": "required name=search_term_string"
-                }
-              }
-            </script>
-            
-            {% schema %}
-            {
-              "name": "Header Section PS",
-              "settings": [
-                {
-                  "type": "checkbox",
-                  "id": "predictive_search_enabled",
-                  "label": "Enable Predictive Search",
-                  "default": true
-                }
-              ]
-            }
-            {% endschema %}
-            
-            <script>
-              document.getElementById('predictive-search-input').addEventListener('input', function(event) {
-                var query = event.target.value;
-            
-                if (query.length >= 3) {  // Trigger search only after 3 characters
-                  fetch(`/search/suggest.json?q=${query}`)
-                    .then(response => response.json())
-                    .then(data => {
-                      // You can process the response here and display suggestions dynamically.
-                      console.log(data); // Example response from Shopify's /search/suggest API
-                    });
-                }
-              });
-              
-              document.querySelector('[data-action="open-search"]').addEventListener('click', function() {
-                document.getElementById('search-form').style.display = 'block';
-              });
-            </script>
-            <script>
-              document.querySelector('[data-action="open-search"]').addEventListener('click', function() {
-                var searchForm = document.getElementById('search-form');
-                if (searchForm.style.display === 'block') {
-                  searchForm.style.display = 'none';
-                } else {
-                  searchForm.style.display = 'block';
-                }
-              });
-            </script>
-                                    
+            <li class="HorizontalList__Item">
+              <a href="/search" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable" aria-label="Search">
+                <span>{%- include 'icon' with 'search' -%}</span>
+              </a>
+               </li>
 
+
+               {% render 'header-search', input_id: 'Search-In-Modal' %}
+
+
+               
             <li class="HorizontalList__Item">
               <a href="/cart" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable" {% if settings.cart_type == 'drawer' %}data-action="open-drawer" data-drawer-id="sidebar-cart" aria-expanded="false" aria-label="Cart"{% endif %}>
                 <span>{%- include 'icon' with 'cart' -%}</span>
