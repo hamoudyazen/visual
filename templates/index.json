@@ -24,8 +24,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/woman-infront-of-tree-with-berries.jpeg",
-            "apply_overlay": true,
-            "content_position": "bottomLeft",
+            "apply_overlay": false,
+            "content_position": "middleLeft",
             "subheading": "Slide title",
             "title": "Tell your story",
             "button_1_text": "",
@@ -39,8 +39,8 @@
         "image_mTC7xc"
       ],
       "settings": {
-        "show_fullscreen": true,
-        "show_arrow": false,
+        "show_fullscreen": false,
+        "show_arrow": true,
         "autoplay": true,
         "cycle_speed": 5,
         "text_color": "#ffffff",
