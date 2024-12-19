@@ -316,7 +316,7 @@ HEADER CONTENT
   </a>
 </li>
 
-<!-- The Search Form Modal -->
+<!-- The Search Form Pop-Up -->
 <div id="searchModal" class="search-modal">
   <div class="search-modal-content">
     <span class="search-modal-close" onclick="toggleSearchForm()">&times;</span>
@@ -327,21 +327,17 @@ HEADER CONTENT
   </div>
 </div>
 
-<!-- CSS for Modal -->
+<!-- CSS for Modal (Simplified) -->
 <style>
   /* Modal container (hidden by default) */
   .search-modal {
     display: none; /* Hidden by default */
     position: fixed;
     z-index: 1000; /* Ensure it is above other content */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Prevent scrolling when modal is open */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center the modal */
+    padding: 20px;
   }
 
   /* Modal content */
@@ -352,7 +348,6 @@ HEADER CONTENT
     width: 80%;
     max-width: 500px;
     text-align: center;
-    z-index: 1010; /* Higher z-index to ensure content is on top */
   }
 
   /* Close button (×) */
@@ -392,20 +387,12 @@ HEADER CONTENT
 <script>
   function toggleSearchForm() {
     var modal = document.getElementById('searchModal');
-    var body = document.body;
-    
-    // Log to check the toggle function
-    console.log("Modal is being toggled");
 
     // Toggle the display of the modal
-    if (modal.style.display === "flex") {
-      console.log("Closing modal");
+    if (modal.style.display === "block") {
       modal.style.display = "none"; // Hide modal
-      body.style.overflow = "auto"; // Re-enable scrolling
     } else {
-      console.log("Opening modal");
-      modal.style.display = "flex"; // Show modal
-      body.style.overflow = "hidden"; // Disable scrolling behind the modal
+      modal.style.display = "block"; // Show modal
     }
   }
 </script>
