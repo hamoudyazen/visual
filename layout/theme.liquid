@@ -296,10 +296,6 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    {%- render -%}
-    {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
-    {{ 'next.css' | asset_url | stylesheet_tag }}
-    {%- render 'css-variables' -%}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
