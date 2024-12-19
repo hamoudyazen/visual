@@ -311,10 +311,6 @@ HEADER CONTENT
               </a>
                </li>
 
-
-               {% render 'header-search', input_id: 'Search-In-Modal' %}
-
-
                
             <li class="HorizontalList__Item">
               <a href="/cart" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable" {% if settings.cart_type == 'drawer' %}data-action="open-drawer" data-drawer-id="sidebar-cart" aria-expanded="false" aria-label="Cart"{% endif %}>
@@ -334,6 +330,9 @@ HEADER CONTENT
     </div>
   </div>
 </header>
+
+{% render 'header-search', input_id: 'Search-In-Modal' %}
+
 
 <style>
   {%- if section.settings.use_sticky_header -%}

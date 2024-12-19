@@ -18,6 +18,16 @@
     >
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
       <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+      <script>
+        window.shopUrl = '{{ request.origin }}';
+        window.routes = {
+          cart_add_url: '{{ routes.cart_add_url }}',
+          cart_change_url: '{{ routes.cart_change_url }}',
+          cart_update_url: '{{ routes.cart_update_url }}',
+          cart_url: '{{ routes.cart_url }}',
+          predictive_search_url: '{{ routes.predictive_search_url }}',
+        };
+        </script>
       {%- if settings.predictive_search_enabled -%}
         <link
           rel="stylesheet"
@@ -26,9 +36,11 @@
           onload="this.media='all'"
         >
       {%- endif -%}
+      {%- if settings.predictive_search_enabled -%}
+        <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+      {%- endif -%}
 
-
-{{"https://cozyantitheft.addons.business/js/script_tags/itslitmerchstore/default/protect.js?shop=itslitmerchstore.myshopify.com" | script_tag }}
+<script src="{{ "https://cozyantitheft.addons.business/js/script_tags/itslitmerchstore/default/protect.js?shop=itslitmerchstore.myshopify.com" }}" defer></script>
     {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
@@ -125,7 +137,7 @@
  
         {{ 'paymentfont.scss.css' | asset_url | stylesheet_tag }}
       
-<script src="https://demandforapps.com/add/js/add_animate.js"></script>{% include 'hulkcode_common' %}{% if template contains 'product' or template contains 'cart' %}<script src='https://volumediscount.hulkapps.com/hulkcode.js' defer='defer'></script>{% endif %}<script async src="https://assets.apphero.co/script_tags/277734_170422.js"></script></head> 
+<script src="https://demandforapps.com/add/js/add_animate.js" defer></script>{% include 'hulkcode_common' %}{% if template contains 'product' or template contains 'cart' %}<script src='https://volumediscount.hulkapps.com/hulkcode.js' defer='defer'></script>{% endif %}<script async src="https://assets.apphero.co/script_tags/277734_170422.js"></script></head> 
 
   <body class="prestige--v1 {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}">
     <a class="PageSkipLink u-visually-hidden" href="#main">{{ 'header.navigation.skip_to_content' | t }}</a>
@@ -196,33 +208,6 @@
 {% render 'special-offers' %}
 
 {% include 'appikon-discounts' %}</body>
-
-
-<script>
-  window.shopUrl = '{{ request.origin }}';
-  window.routes = {
-    cart_add_url: '{{ routes.cart_add_url }}',
-    cart_change_url: '{{ routes.cart_change_url }}',
-    cart_update_url: '{{ routes.cart_update_url }}',
-    cart_url: '{{ routes.cart_url }}',
-    predictive_search_url: '{{ routes.predictive_search_url }}',
-  };
-
-  window.cartStrings = {
-    error: `{{ 'sections.cart.cart_error' | t }}`,
-    quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
-  };
-
-  window.variantStrings = {
-    addToCart: `{{ 'products.product.add_to_cart' | t }}`,
-    soldOut: `{{ 'products.product.sold_out' | t }}`,
-    unavailable: `{{ 'products.product.unavailable' | t }}`,
-    unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
-  };
-
-
-
-</script>
 
 {%- if settings.predictive_search_enabled -%}
   <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
