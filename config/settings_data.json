@@ -9,6 +9,9 @@
  */
 {
   "current": {
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": true,
+    "predictive_search_show_price": true,
     "cart_type": "drawer",
     "logo": "shopify://shop_images/logo_1.png",
     "logo_width": 200,
@@ -119,9 +122,6 @@
     "social_pinterest_link": "",
     "social_tumblr_link": "",
     "social_vimeo_link": "",
-    "predictive_search_enabled": true,
-    "predictive_search_show_vendor": false,
-    "predictive_search_show_price": false,
     "currency_code_enabled": false,
     "show_vendor": false,
     "show_cart_note": true,
