@@ -329,7 +329,7 @@ HEADER CONTENT
 
 <!-- CSS for Modal -->
 <style>
-  /* Hide Modal by Default */
+  /* Modal container (hidden by default) */
   .search-modal {
     display: none; /* Hidden by default */
     position: fixed;
@@ -344,6 +344,7 @@ HEADER CONTENT
     overflow: hidden; /* Prevent scrolling when modal is open */
   }
 
+  /* Modal content */
   .search-modal-content {
     background-color: white;
     padding: 20px;
@@ -354,6 +355,7 @@ HEADER CONTENT
     z-index: 1010; /* Higher z-index to ensure content is on top */
   }
 
+  /* Close button (×) */
   .search-modal-close {
     font-size: 30px;
     color: black;
@@ -363,6 +365,7 @@ HEADER CONTENT
     right: 10px;
   }
 
+  /* Input field and button */
   .search-input {
     width: 100%;
     padding: 10px;
@@ -390,14 +393,19 @@ HEADER CONTENT
   function toggleSearchForm() {
     var modal = document.getElementById('searchModal');
     var body = document.body;
+    
+    // Log to check the toggle function
+    console.log("Modal is being toggled");
 
     // Toggle the display of the modal
     if (modal.style.display === "flex") {
-      modal.style.display = "none";
+      console.log("Closing modal");
+      modal.style.display = "none"; // Hide modal
       body.style.overflow = "auto"; // Re-enable scrolling
     } else {
-      modal.style.display = "flex";
-      body.style.overflow = "hidden"; // Disable scrolling when modal is open
+      console.log("Opening modal");
+      modal.style.display = "flex"; // Show modal
+      body.style.overflow = "hidden"; // Disable scrolling behind the modal
     }
   }
 </script>
