@@ -9,34 +9,6 @@
  */
 {
   "sections": {
-    "featured_collection_E6egYx": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "description": "<p>קולקציית עור דלוקס</p>",
-        "show_description": false,
-        "description_style": "uppercase",
-        "collection": "unknown-london",
-        "products_to_show": 5,
-        "columns_desktop": 5,
-        "full_width": true,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 12,
-        "padding_bottom": 20
-      }
-    },
     "yazen_NVr6DK": {
       "type": "yazen",
       "settings": {}
@@ -45,95 +17,46 @@
       "type": "yazen",
       "settings": {}
     },
-    "hero_banner_custom_Ng7Pef": {
-      "type": "hero-banner-custom",
+    "slideshow_cU4LVy": {
+      "type": "slideshow",
       "blocks": {
-        "image_VEqfgH": {
-          "type": "image",
+        "slide_4ELeig": {
+          "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/3SN279ZRD_H069.png",
-            "imageMobile": "shopify://shop_images/M1000TE_2.jpg",
-            "imgClickable": false
+            "image": "shopify://shop_images/woman-infront-of-tree-with-berries.jpeg",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
           }
         }
       },
       "block_order": [
-        "image_VEqfgH"
+        "slide_4ELeig"
       ],
       "settings": {
-        "heroHeight": "var(--heroHeight-s)",
-        "cropVideo": false,
-        "title": "Hero headingljheskjfhsdkjhf",
-        "content": "jhasdkjhsakjdh",
-        "cta": "Shop more",
-        "url": "",
-        "contentPosition": "center",
-        "contentDirection": "column",
-        "textAlignment": "center",
-        "contentPositionMob": "center between",
-        "contentDirectionMob": "column",
-        "textAlignmentMob": "center",
-        "heroMetaH1Bg": "#ffffff",
-        "heroMetaH1Color": "#000000",
-        "heroMetaH1hasBg": false
-      }
-    },
-    "promo_grid_nULcnL": {
-      "type": "promo-grid",
-      "blocks": {
-        "advanced_g7Xt3V": {
-          "type": "advanced",
-          "settings": {
-            "subheading": "",
-            "heading": "Announce your promotion",
-            "textarea": "Include the smaller details of your promotion in text below the title.",
-            "cta_text1": "Shop This",
-            "cta_link1": "",
-            "cta_text2": "Shop All",
-            "cta_link2": "",
-            "video_url": "",
-            "width": "50",
-            "height": 500,
-            "text_align": "vertical-center horizontal-center",
-            "color_accent": "#fff"
-          }
-        },
-        "advanced_XJBVmN": {
-          "type": "advanced",
-          "settings": {
-            "subheading": "",
-            "heading": "Announce your promotion",
-            "textarea": "Include the smaller details of your promotion in text below the title.",
-            "cta_text1": "Shop This",
-            "cta_link1": "",
-            "cta_text2": "Shop All",
-            "cta_link2": "",
-            "video_url": "",
-            "width": "50",
-            "height": 500,
-            "text_align": "vertical-center horizontal-center",
-            "color_accent": "#fff"
-          }
-        }
-      },
-      "block_order": [
-        "advanced_g7Xt3V",
-        "advanced_XJBVmN"
-      ],
-      "settings": {
-        "full_width": false,
-        "gutter_size": 20,
-        "space_above": true,
-        "space_below": true,
-        "lazyload_images": true
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
       }
     }
   },
   "order": [
-    "featured_collection_E6egYx",
     "yazen_NVr6DK",
     "yazen_rxBD6m",
-    "hero_banner_custom_Ng7Pef",
-    "promo_grid_nULcnL"
+    "slideshow_cU4LVy"
   ]
 }
